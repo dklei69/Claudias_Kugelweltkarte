@@ -2,10 +2,12 @@ package example.claudias_kugelweltkarte.model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class Cell {
     @Setter(AccessLevel.NONE)
     private BiomeType biomeType;
