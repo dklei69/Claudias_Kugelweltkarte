@@ -1,5 +1,6 @@
 package example.claudias_kugelweltkarte.model;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +29,7 @@ public class Cell {
         this(x, y, biomeType, false);
     }
 
+    @JsonSetter
     public void setBiomeType(BiomeType biomeType) {
         if (!isStabilized && !isFixed) {
             this.biomeType = biomeType;
