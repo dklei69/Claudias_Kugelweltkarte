@@ -43,6 +43,11 @@ public class BiomeMarkovService implements MarkovService{
     public Grid getGrid(){
         return currentGrid;
     }
+
+    @Override
+    public int getPhaseNumber(){
+        return phaseNumber;
+    }
     @Override
     public void nextPhase() {
         currentGrid = calculateNextPhase(currentGrid);
@@ -56,6 +61,15 @@ public class BiomeMarkovService implements MarkovService{
             throw new RuntimeException(e);
         }
         phaseRepository.save(phase);
+    }
+    @Override
+    public void stabilize(int x, int y, int phase){
+        Cell cell = currentGrid.getCells()[x][y];
+        if (cell.isStabilized()){
+            cell.setStabilized(false);
+        } else {
+            cell.setStabilized(true);
+        }
     }
 
     @Override
