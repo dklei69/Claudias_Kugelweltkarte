@@ -6,12 +6,14 @@ import example.claudias_kugelweltkarte.model.Phase;
 import example.claudias_kugelweltkarte.repository.PhaseRepository;
 import example.claudias_kugelweltkarte.service.MarkovService;
 import example.claudias_kugelweltkarte.service.StabilizerService;
+import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller //Spring scannt die Klasse und registriert sie als WebController
@@ -27,6 +29,7 @@ public class MapController {
     public String showMap(Model model) { //Model ist das Spring Interface und fungiert als Container zwischen Controller und Templates.
         Grid grid = markovService.getGrid();
         model.addAttribute("grid", grid); //Erster Parameter benennt das Objekt, damit Thymeleaf es erkennt und der zweite Parameter ist das Objekt selbst.
+        model.addAttribute("phase", markovService.getPhaseNumber());
         return "map";//Rückgabewert ist der Templatename.
     }
 
@@ -58,10 +61,10 @@ public class MapController {
         return "redirect:/map";
     }
 
-    @GetMapping("/map/phase/{phaseNumber}")
-    public String findPhaseNumber(Model model, @PathVariable int phaseNumber) {
-        Phase phaseId = phaseRepository.findPhaseNumber(phaseNumber);
-
+    @GetMapping("/map/phase")
+    public String findByPhaseNumber(Model model, @RequestParam int phaseNumber) {
+        Phase phaseId = phaseRepository.findByPhaseNumber(phaseNumber);
+        model.addAttribute("phase", phaseNumber);
         if (phaseId == null) {
             model.addAttribute("error", "Karte nicht gefunden.");
             return "map";

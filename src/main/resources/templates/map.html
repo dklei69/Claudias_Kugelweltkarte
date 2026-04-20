@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <title>Claudias Kugelweltkarte</title>
+</head>
+<body th:class="${phase %2 != 0? 'hell':'dunkel'}">
+<div class="wrapper">
+    <div class="left">
+
+        <div class="untertitel" th:text="${phase %2 != 0? 'HELLE PHASE':'DUNKLE PHASE'}">Platzhalter</div>
+        <div class="grid">
+            <div th:each="row : ${grid.cells}">
+                <div th:each="cell : ${row}">
+                <form th:action="@{/map/stabilize/{x}/{y}(x=${cell.x},y=${cell.y})}" method="post">
+                    <button type="submit"></button>
+                </form>
+                 </div>
+            </div>
+        </div>
+            <div class="button-bereich">
+                <form th:action="@{/map/next}" method="post">
+                    <button type="submit">Phasenwechsel</button>
+                </form>
+
+            </div>
+
+    </div>
+    <div class="right">
+        <div class="phase">
+            <span>Phase</span>
+            <input type="text" readonly th:value="${phase}">
+        </div>
+        <div class="stabilisatoren">
+            <label>Stabilisatoren</label>
+            <small>max 10</small>
+            <input type="text" readonly value="10">
+        </div>
+        <div class="suchfunktion">
+        <label>Suchfunktion</label>
+        <form action="/map/phase" method="get">
+            <label>Gewünschte Phase eingeben</label>
+            <input type="number" name="phaseNumber" placeholder="Phase">
+            <button type="submit">Suche</button>
+        </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
