@@ -1,5 +1,6 @@
 .wrapper{
     display: flex;
+
 }
 body {
     margin: 0;
@@ -8,29 +9,132 @@ body {
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(50, 10px);
-    grid-template-rows: repeat(50, 10px);
+    grid-template-columns: repeat(50, 6px);
+    grid-template-rows: repeat(50, 6px);
 }
 
 .grid button {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
     padding: 0;
     margin: 0;
+    border:none;
+
+}
+.grid form{
+    display: contents;
 }
 
 .grid div{
     display: contents;
 }
+.hell .untertitel {
+    margin-left:12em;
+}
 .hell{
     background-image: url('/images/light_motiv.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
+    color: 	#ee2c2c;
 
+}
+.hell .button-bereich button{
+    border: none;
+    border-radius: 0.6em;
+    height: 2em;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+}
+
+.hell .suchfunktion button{
+    border: none;
+    border-radius: 0.6em;
+    height: 2em;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+}
+.dunkel .suchfunktion button{
+    border: none;
+    border-radius: 0.6em;
+    height: 2em;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #666666 60%);
+}
+.dunkel .untertitel{
+    margin-left:11em;
 }
 .dunkel{
     background-image: url('/images/dark_motiv.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
+    color:lightgrey;
+}
+.dunkel .button-bereich button{
+    border: none;
+    border-radius:0.6em;
+    height: 2em;
+    color: white;
+    background:linear-gradient(to bottom, #ffffff 1%, #666666 60%);
+}
+.left{
+    margin-left: 10em;
+    margin-top: 10em;
+}
 
+.button-bereich{
+    margin-left:6em;
+    padding-top: 2em;
+}
+
+.right{
+    margin-left: 7em;
+    margin-top:12em;
+
+}
+.right input[readonly]{
+    background-color: #cccccc;
+    color:#666666;
+    border: none;
+}
+.right input{
+    text-align: center;
+    width: 2em;
+}
+
+.info-bereich {
+    display: grid !important;
+    align-items: center;
+    grid-template-columns: 150px 80px;
+    row-gap: 1em;
+    column-gap: 2em;
+    margin-bottom: 6em;
+}
+
+.phase, .stabilisatoren {
+    display: contents;
+}
+
+.stabilisatoren span{
+    font-size: 0.7em;
+}
+.suchfunktion > label{
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+
+}
+.suchfunktion form label{
+    font-size: 1em;
+}
+.suchfunktion form {
+
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1em;
+
+}
+.suchfunktion input{
+    width: 4em;
 }

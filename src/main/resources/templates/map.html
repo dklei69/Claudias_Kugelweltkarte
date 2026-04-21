@@ -14,11 +14,12 @@
             <div th:each="row : ${grid.cells}">
                 <div th:each="cell : ${row}">
                 <form th:action="@{/map/stabilize/{x}/{y}(x=${cell.x},y=${cell.y})}" method="post">
-                    <button type="submit"></button>
+                    <button type="submit" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'"></button>
                 </form>
                  </div>
             </div>
         </div>
+
             <div class="button-bereich">
                 <form th:action="@{/map/next}" method="post">
                     <button type="submit">Phasenwechsel</button>
@@ -26,21 +27,24 @@
 
             </div>
 
-    </div>
+</div>
     <div class="right">
+    <div class="info-bereich">
         <div class="phase">
             <span>Phase</span>
             <input type="text" readonly th:value="${phase}">
         </div>
         <div class="stabilisatoren">
-            <label>Stabilisatoren</label>
-            <small>max 10</small>
-            <input type="text" readonly value="10">
+            <label>Stabilisatoren <span> max 10</span></label>
+
+            <input type="text" readonly th:value="${stabilizers}">
         </div>
+    </div>
+
         <div class="suchfunktion">
         <label>Suchfunktion</label>
         <form action="/map/phase" method="get">
-            <label>Gewünschte Phase eingeben</label>
+            <label>Gewünschte Phase eingeben:</label>
             <input type="number" name="phaseNumber" placeholder="Phase">
             <button type="submit">Suche</button>
         </form>

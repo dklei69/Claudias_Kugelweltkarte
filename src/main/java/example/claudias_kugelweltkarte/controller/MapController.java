@@ -1,6 +1,7 @@
 package example.claudias_kugelweltkarte.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import example.claudias_kugelweltkarte.model.Cell;
 import example.claudias_kugelweltkarte.model.Grid;
 import example.claudias_kugelweltkarte.model.Phase;
 import example.claudias_kugelweltkarte.repository.PhaseRepository;
@@ -30,6 +31,7 @@ public class MapController {
         Grid grid = markovService.getGrid();
         model.addAttribute("grid", grid); //Erster Parameter benennt das Objekt, damit Thymeleaf es erkennt und der zweite Parameter ist das Objekt selbst.
         model.addAttribute("phase", markovService.getPhaseNumber());
+        model.addAttribute("stabilizers", stabilizerService.getNumberOfStabilizers());
         return "map";//Rückgabewert ist der Templatename.
     }
 
@@ -57,6 +59,12 @@ public class MapController {
 
     @PostMapping("/map/stabilize/{x}/{y}")
     public String setStabilizer(@PathVariable int x, @PathVariable int y) {
+        Cell cell = markovService.getGrid().getCells()[x][y];
+        if (cell.isStabilized()) {
+            stabilizerService.incrementStabilizers();
+        } else {
+            stabilizerService.decrementStabilizers();
+        }
         markovService.stabilize(x, y, markovService.getPhaseNumber());
         return "redirect:/map";
     }

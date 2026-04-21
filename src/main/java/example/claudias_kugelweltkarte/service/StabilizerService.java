@@ -1,14 +1,16 @@
 package example.claudias_kugelweltkarte.service;
 
 import example.claudias_kugelweltkarte.repository.StabilizerConfigRepository;
+import org.hibernate.sql.ast.tree.expression.Over;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class StabilizerService {
-    private int numberOfStabilizer;
+    private int numberOfStabilizer =10;
     private StabilizerConfigRepository stabilizerConfigRepository;
+
 
 
     @Autowired
