@@ -15,6 +15,6 @@ public class StabilizerConfig {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int remainingStabilizers = 10;
+    private int remainingStabilizers = 50;
 
 }

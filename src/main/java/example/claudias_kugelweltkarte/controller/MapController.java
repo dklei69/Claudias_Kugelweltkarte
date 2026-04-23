@@ -32,6 +32,7 @@ public class MapController {
         model.addAttribute("grid", grid); //Erster Parameter benennt das Objekt, damit Thymeleaf es erkennt und der zweite Parameter ist das Objekt selbst.
         model.addAttribute("phase", markovService.getPhaseNumber());
         model.addAttribute("stabilizers", stabilizerService.getNumberOfStabilizers());
+        model.addAttribute("isHistoricPhase", true);
         return "map";//Rückgabewert ist der Templatename.
     }
 
@@ -72,6 +73,7 @@ public class MapController {
     @GetMapping("/map/phase")
     public String findByPhaseNumber(Model model, @RequestParam int phaseNumber) {
         Phase phaseId = phaseRepository.findByPhaseNumber(phaseNumber);
+        model.addAttribute("isHistoricPhase",true);
         model.addAttribute("phase", phaseNumber);
         if (phaseId == null) {
             model.addAttribute("error", "Karte nicht gefunden.");

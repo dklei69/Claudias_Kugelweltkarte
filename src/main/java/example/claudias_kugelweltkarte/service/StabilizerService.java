@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StabilizerService {
-    private int numberOfStabilizer =10;
+    private int numberOfStabilizer = 25;
     private StabilizerConfigRepository stabilizerConfigRepository;
 
 
@@ -20,7 +20,7 @@ public class StabilizerService {
 
     public void setNumberOfStabilizers(int numbersOfStabilizers){
 
-        if ( numbersOfStabilizers>10 || numbersOfStabilizers<0){
+        if ( numbersOfStabilizers>25 || numbersOfStabilizers<0){
             throw new IllegalArgumentException("Ungültige Anzahl");
         }
         this.numberOfStabilizer =numbersOfStabilizers;

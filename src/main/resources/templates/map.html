@@ -5,7 +5,7 @@
     <link rel="stylesheet" th:href="@{/css/global.css}">
     <title>Claudias Kugelweltkarte</title>
 </head>
-<body th:class="${phase %2 != 0? 'hell':'dunkel'}">
+<body th:class="${phase %2 != 0? 'hell':'dunkel'}+${isHistoricPhase?'historic':''}">
 <div class="wrapper">
     <div class="left">
 
@@ -14,7 +14,7 @@
             <div th:each="row : ${grid.cells}">
                 <div th:each="cell : ${row}">
                 <form th:action="@{/map/stabilize/{x}/{y}(x=${cell.x},y=${cell.y})}" method="post">
-                    <button type="submit" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'"></button>
+                    <button type="submit" th:classappend="${cell.isStabilized() ? 'setFilter' : ''}" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'"></button>
                 </form>
                  </div>
             </div>
@@ -22,7 +22,7 @@
 
             <div class="button-bereich">
                 <form th:action="@{/map/next}" method="post">
-                    <button type="submit">Phasenwechsel</button>
+                    <button type="submit" >Phasenwechsel</button>
                 </form>
 
             </div>
@@ -35,7 +35,7 @@
             <input type="text" readonly th:value="${phase}">
         </div>
         <div class="stabilisatoren">
-            <label>Stabilisatoren <span> max 10</span></label>
+            <label>Stabilisatoren <span> max 25</span></label>
 
             <input type="text" readonly th:value="${stabilizers}">
         </div>
@@ -47,6 +47,7 @@
             <label>Gewünschte Phase eingeben:</label>
             <input type="number" name="phaseNumber" placeholder="Phase">
             <button type="submit">Suche</button>
+            <a class="button-style" th:href="@{/map}">zurück</a>
         </form>
         </div>
     </div>

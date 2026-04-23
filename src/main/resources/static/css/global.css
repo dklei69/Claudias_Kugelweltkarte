@@ -6,30 +6,47 @@ body {
     margin: 0;
     padding:0;
     min-height: 100vh;
+    font-family: "Dead Font Walking", sans-serif;
+}
+@font-face{
+    font-family: 'Dead Font Walking';
+    src: url('/fonts/dead_font_walking/DeadFontWalking.otf') format('opentype');
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(50, 6px);
-    grid-template-rows: repeat(50, 6px);
+    grid-template-columns: repeat(50, 8px);
+    grid-template-rows: repeat(50, 8px);
 }
 
 .grid button {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     padding: 0;
     margin: 0;
     border:none;
+    position:relative;
 
 }
 .grid form{
     display: contents;
+
 }
 
 .grid div{
     display: contents;
 }
+
+
+.setFilter::after{
+    position: absolute;
+    content:'';
+    inset:0;
+    background-color: rgba(99,184,255,0.7);
+   }
+
 .hell .untertitel {
-    margin-left:12em;
+    margin-left:18.5em;
+    margin-bottom: 1em;
 }
 .hell{
     background-image: url('/images/light_motiv.jpg');
@@ -38,8 +55,15 @@ body {
     color: 	#ee2c2c;
 
 }
+
+.hell .grid button:hover{
+     transform: scale(1.5);
+     outline: 0.2px solid 	#ee2c2c;
+     z-index: 1;
+ }
 .hell .button-bereich button{
     border: none;
+    font-family: "Dead Font Walking",sans-serif;
     border-radius: 0.6em;
     height: 2em;
     color: white;
@@ -51,6 +75,22 @@ body {
     border-radius: 0.6em;
     height: 2em;
     color: white;
+    font-family: "Dead Font Walking",sans-serif;
+    background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+}
+.hell .button-style {
+    display:block;
+    border: none;
+    font-size: 13px;
+    font-family: "Dead Font Walking",sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0.7em;
+    height: 25px;
+    padding: 0.1em;
+    line-height:25px;
+    width:50px;
+    color: white;
     background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
 }
 .dunkel .suchfunktion button{
@@ -58,23 +98,49 @@ body {
     border-radius: 0.6em;
     height: 2em;
     color: white;
+    font-family: "Dead Font Walking",sans-serif;
     background: linear-gradient(to bottom, #ffffff 1%, #666666 60%);
+
 }
 .dunkel .untertitel{
-    margin-left:11em;
+    margin-left:17.5em;
+    margin-bottom: 1em;
 }
 .dunkel{
     background-image: url('/images/dark_motiv.jpg');
     background-size: cover;
     background-position: top center;
     color:lightgrey;
+
 }
+.dunkel .grid button:hover{
+       transform: scale(1.5);
+       outline: 0.2px solid #303030;
+       z-index: 1;
+   }
 .dunkel .button-bereich button{
     border: none;
+    font-family: "Dead Font Walking",sans-serif;
     border-radius:0.6em;
     height: 2em;
     color: white;
     background:linear-gradient(to bottom, #ffffff 1%, #666666 60%);
+}
+
+.dunkel .button-style {
+    display:block;
+    border: none;
+    font-size: 13px;
+    font-family: "Dead Font Walking",sans-serif;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0.7em;
+    height: 25px;
+    padding: 0.1em;
+    line-height:25px;
+    width:50px;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #666666 60%);
 }
 .left{
     margin-left: 10em;
@@ -82,8 +148,8 @@ body {
 }
 
 .button-bereich{
-    margin-left:6em;
-    padding-top: 2em;
+    margin-left:9em;
+    padding-top: 1em;
 }
 
 .right{
@@ -94,6 +160,7 @@ body {
 .right input[readonly]{
     background-color: #cccccc;
     color:#666666;
+    font-family: "Dead Font Walking",sans-serif;
     border: none;
 }
 .right input{
@@ -137,4 +204,5 @@ body {
 }
 .suchfunktion input{
     width: 4em;
+    font-family: "Dead Font Walking",sans-serif;
 }
