@@ -10,7 +10,7 @@ body {
 }
 @font-face{
     font-family: 'Dead Font Walking';
-    src: url('/fonts/dead_font_walking/DeadFontWalking.otf') format('opentype');
+    src: url('../fonts/dead_font_walking/DeadFontWalking.otf') format('opentype');
 }
 .grid {
     display: grid;
@@ -51,7 +51,7 @@ body {
     font-size: 1.7em;
 }
 .hell{
-    background-image: url('/images/light_motiv.jpg');
+    background-image: url('../images/light_motiv.jpg');
     background-size: cover;
     background-position: top center;
     color: 	#ee2c2c;
@@ -110,7 +110,7 @@ body {
     font-size: 1.7em;
 }
 .dunkel{
-    background-image: url('/images/dark_motiv.jpg');
+    background-image: url('../images/dark_motiv.jpg');
     background-size: cover;
     background-position: top center;
     color:lightgrey;
@@ -211,5 +211,5 @@ body {
 }
 
 .historic{
-    background-image: url("/images/historic.png");
+    background-image: url("../images/historic.png");
 }
