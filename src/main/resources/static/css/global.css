@@ -37,6 +37,7 @@ body {
 }
 
 
+
 .setFilter::after{
     position: absolute;
     content:'';
@@ -45,8 +46,9 @@ body {
    }
 
 .hell .untertitel {
-    margin-left:18.5em;
+    margin-left:9.6em;
     margin-bottom: 1em;
+    font-size: 1.7em;
 }
 .hell{
     background-image: url('/images/light_motiv.jpg');
@@ -103,8 +105,9 @@ body {
 
 }
 .dunkel .untertitel{
-    margin-left:17.5em;
+    margin-left:9em;
     margin-bottom: 1em;
+    font-size: 1.7em;
 }
 .dunkel{
     background-image: url('/images/dark_motiv.jpg');
@@ -205,4 +208,8 @@ body {
 .suchfunktion input{
     width: 4em;
     font-family: "Dead Font Walking",sans-serif;
+}
+
+.historic{
+    background-image: url("/images/historic.png");
 }

@@ -32,7 +32,7 @@ public class MapController {
         model.addAttribute("grid", grid); //Erster Parameter benennt das Objekt, damit Thymeleaf es erkennt und der zweite Parameter ist das Objekt selbst.
         model.addAttribute("phase", markovService.getPhaseNumber());
         model.addAttribute("stabilizers", stabilizerService.getNumberOfStabilizers());
-        model.addAttribute("isHistoricPhase", true);
+        model.addAttribute("isHistoricPhase", false);
         return "map";//Rückgabewert ist der Templatename.
     }
 
