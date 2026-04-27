@@ -61,6 +61,10 @@ public class MapController {
     @PostMapping("/map/stabilize/{x}/{y}")
     public String setStabilizer(@PathVariable int x, @PathVariable int y) {
         Cell cell = markovService.getGrid().getCells()[x][y];
+        if (cell.isFixed()) {
+            return "redirect:/map";
+        }
+
         if (cell.isStabilized()) {
             stabilizerService.incrementStabilizers();
         } else {

@@ -15,7 +15,7 @@
             <div th:each="row : ${grid.cells}">
                 <div th:each="cell : ${row}">
                 <form th:action="@{/map/stabilize/{x}/{y}(x=${cell.x},y=${cell.y})}" method="post">
-                    <button type="submit" th:classappend="${cell.isStabilized() ? 'setFilter' : ''}" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'" th:disabled="${isHistoricPhase}"></button>
+                    <button type="submit" th:classappend="${cell.isStabilized() && !cell.isFixed() ? 'setFilter' : ''} + ' ' + ${cell.isFixed() ? 'sphere-highlight' : ''}" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'" th:disabled="${isHistoricPhase}"></button>
                 </form>
                  </div>
             </div>
@@ -23,7 +23,7 @@
 
             <div class="button-bereich">
                 <form th:action="@{/map/next}" method="post" th:if="${!isHistoricPhase}">
-                    <button type="submit" >Phasenwechsel</button>
+                    <button>Phasenwechsel</button>
                 </form>
 
             </div>
@@ -37,22 +37,32 @@
         </div>
         <div class="stabilisatoren" th:if="${!isHistoricPhase}">
             <label>Stabilisatoren <span> max 25</span></label>
-
             <input type="text" readonly th:value="${stabilizers}">
+        </div>
+        <div class="stabilisator-modus-bereich" th:if="${!isHistoricPhase}">
+            <label>Stabilisatormodus</label>
+            <button class="stabilisatorModus-button" onclick="toggleStabilisatorModus()">Start
+            </button>
         </div>
     </div>
 
-        <div class="suchfunktion">
+
+    <div class="suchfunktion">
         <label>Suchfunktion</label>
         <form action="/map/phase" method="get">
             <label>gewünschte Phase eingeben:</label>
-            <input type="number" name="phaseNumber" placeholder="Phase">
-            <button type="submit">Suche</button>
+            <input type="number" name="phaseNumber" placeholder="Phase" min = 1>
+            <button type="submit" th:if="${!isHistoricPhase}">Suche</button>
             <a class="button-style" th:href="@{/map}" th:if="${isHistoricPhase}">zurück</a>
         </form>
-        </div>
     </div>
-</div>
+    </div>
+    </div>
+
+    <script>
+        function toggleStabilisatorModus(){
+            document.body.classList.toggle('stabilisatorModus')
+        }</script>
 
 </body>
 </html>

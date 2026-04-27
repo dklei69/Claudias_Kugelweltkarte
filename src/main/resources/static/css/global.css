@@ -14,13 +14,16 @@ body {
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(50, 8px);
-    grid-template-rows: repeat(50, 8px);
+    grid-template-columns: repeat(50, 7px);
+    grid-template-rows: repeat(50, 7px);
+
+
+
 }
 
 .grid button {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     padding: 0;
     margin: 0;
     border:none;
@@ -45,9 +48,25 @@ body {
     background-color: rgba(99,184,255,0.7);
    }
 
+.stabilisator-modus-bereich {
+    display: flex;
+    align-items: center;
+    gap: 4em;
+}
+
+ .dunkel.stabilisatorModus .grid button,
+ .hell.stabilisatorModus .grid button{
+    background-image: none !important;
+    background-color:white !important;
+}
+
+.sphere-highlight{
+    filter: brightness(200%);
+}
+
 .hell .untertitel {
-    margin-left:9.6em;
-    margin-bottom: 1em;
+    margin-left:8em;
+    margin-top: 2em;
     font-size: 1.7em;
 }
 .hell{
@@ -68,9 +87,22 @@ body {
     font-family: "Dead Font Walking",sans-serif;
     border-radius: 0.6em;
     height: 2em;
+    margin-left: 0em;
     color: white;
     background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
 }
+
+
+.hell .stabilisatorModus-button{
+    border: none;
+    font-family: "Dead Font Walking",sans-serif;
+    border-radius: 0.6em;
+    height: 2em;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+
+}
+
 
 .hell .suchfunktion button{
     border: none;
@@ -79,6 +111,7 @@ body {
     color: white;
     font-family: "Dead Font Walking",sans-serif;
     background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+
 }
 .hell .button-style {
     display:block;
@@ -95,6 +128,7 @@ body {
     color: white;
     background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
 }
+
 .dunkel .suchfunktion button{
     border: none;
     border-radius: 0.6em;
@@ -105,8 +139,8 @@ body {
 
 }
 .dunkel .untertitel{
-    margin-left:9em;
-    margin-bottom: 1em;
+    margin-left:7em;
+    margin-top: 2em;
     font-size: 1.7em;
 }
 .dunkel{
@@ -129,7 +163,15 @@ body {
     color: white;
     background:linear-gradient(to bottom, #ffffff 1%, #666666 60%);
 }
+.dunkel .stabilisatorModus-button{
+    border: none;
+    font-family: "Dead Font Walking",sans-serif;
+    border-radius: 0.6em;
+    height: 2em;
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 1%, #666666 60%);
 
+}
 .dunkel .button-style {
     display:block;
     border: none;
@@ -147,11 +189,11 @@ body {
 }
 .left{
     margin-left: 10em;
-    margin-top: 10em;
+    margin-top: 6em;
 }
 
 .button-bereich{
-    margin-left:9em;
+    margin-left:8em;
     padding-top: 1em;
 }
 
@@ -190,6 +232,7 @@ body {
 .suchfunktion > label{
     display: block;
     text-align: center;
+    margin-top: 5em;
     margin-bottom: 1em;
     font-size: 1.2em;
 
