@@ -17,18 +17,38 @@
                 <form th:action="@{/map/stabilize/{x}/{y}(x=${cell.x},y=${cell.y})}" method="post">
                     <button type="submit" th:classappend="${cell.isStabilized() && !cell.isFixed() ? 'setFilter' : ''} + ' ' + ${cell.isFixed() ? 'sphere-highlight' : ''}" th:style="'background-image: url(' + ${cell.biomeType.imagePath} +'); background-size: cover; cursor: pointer;'" th:disabled="${isHistoricPhase}"></button>
                 </form>
-                 </div>
+                </div>
             </div>
         </div>
 
+        <div class = "legende">
+            <label>Legende : </label>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <p>Berg : </p>
+                        <img src="/images/mountain.png" alt="Berg">
+                    </div>
+                    <div class="legend-item">
+                        <p>Ebene : </p>
+                        <img src="/images/plain.jpg" alt="Ebene">
+                    </div>
+                    <div class="legend-item">
+                        <p>Wasser : </p>
+                        <img src="/images/water.jpg" alt="Wasser">
+                    </div>
+                    <div class="legend-item">
+                        <p>Kugelstadt : </p>
+                        <img src="/images/sphere.jpg" alt="Kugelstadt">
+                    </div>
+                </div>
+        </div>
             <div class="button-bereich">
                 <form th:action="@{/map/next}" method="post" th:if="${!isHistoricPhase}">
                     <button>Phasenwechsel</button>
                 </form>
 
             </div>
-
-</div>
+    </div>
     <div class="right">
     <div class="info-bereich">
         <div class="phase">

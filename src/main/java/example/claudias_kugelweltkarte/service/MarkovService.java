@@ -1,7 +1,7 @@
 package example.claudias_kugelweltkarte.service;
 
 import example.claudias_kugelweltkarte.model.Grid;
-import example.claudias_kugelweltkarte.model.Phase;
+
 
 public interface MarkovService {
     Grid getGrid();

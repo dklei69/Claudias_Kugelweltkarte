@@ -48,10 +48,50 @@ body {
     background-color: rgba(99,184,255,0.7);
    }
 
+.sphere-highlight{
+    filter: brightness(200%);
+}
+
 .stabilisator-modus-bereich {
     display: flex;
     align-items: center;
     gap: 4em;
+}
+
+.legende{
+    display: flex;
+    flex-direction:column;
+    padding-left: 2px;
+    color:#000000;
+    font-size: 10px;
+}
+
+.legend-items{
+    display:flex;
+    align-items:start;
+    gap:1em;
+
+}
+.legend-item {
+    display:flex;
+    align-items: start;
+    gap: 5px;
+}
+
+.legend-item p{
+    margin:0;
+}
+
+.legend-items{
+font-size: 10px;
+ }
+
+.legend-item{
+      padding-left: 2px;
+  }
+.legend-item img{
+    height:1em;
+    width: 1em;
 }
 
  .dunkel.stabilisatorModus .grid button,
@@ -60,9 +100,7 @@ body {
     background-color:white !important;
 }
 
-.sphere-highlight{
-    filter: brightness(200%);
-}
+
 
 .hell .untertitel {
     margin-left:8em;
@@ -91,6 +129,12 @@ body {
     color: white;
     background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
 }
+
+.hell .legende{
+
+    background: linear-gradient(to bottom, #ffffff 1%, #ee2c2c 60%);
+}
+
 
 
 .hell .stabilisatorModus-button{
@@ -162,6 +206,11 @@ body {
     height: 2em;
     color: white;
     background:linear-gradient(to bottom, #ffffff 1%, #666666 60%);
+}
+
+.dunkel .legende{
+
+    background: linear-gradient(to bottom, #ffffff 0.5%, #666666 90%);
 }
 .dunkel .stabilisatorModus-button{
     border: none;

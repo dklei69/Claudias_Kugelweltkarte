@@ -54,7 +54,6 @@ class BiomeMarkovServiceTest {
         BiomeMarkovService service = new BiomeMarkovService(new Random(42), phaseRepository);
         Grid currentGrid = service.getGrid();
         Grid nextGrid = service.calculateNextPhase(currentGrid);
-        //System.out.println(nextGrid.getCells()[10][10].getBiomeType());
         assertEquals(BiomeType.WATER, nextGrid.getCells()[10][10].getBiomeType());
     }
 
