@@ -1,6 +1,6 @@
 # 🌍 Claudias Kugelweltkarte
 
-A dynamic, interactive web map application based on the fictional horror world from Claudia Roman's novel series. The world evolves with every phase transition — driven by Markov chains.
+A dynamic, interactive web map application based on the fictional horror world from Claudia Roman's novel series. The world evolves with every phase transition, driven by Markov chains.
 
 🔗 **Live Demo:** [claudias-kugelweltkarte.onrender.com](https://claudias-kugelweltkarte.onrender.com)
 
@@ -8,9 +8,9 @@ A dynamic, interactive web map application based on the fictional horror world f
 
 ## About the Project
 
-Claudias Kugelweltkarte is a Spring Boot web application that simulates a living, breathing world. A 50×50 grid of biome cells transitions between states (Water, Mountain, Plain) according to defined probability rules — implemented as a Markov chain.
+Claudias Kugelweltkarte is a Spring Boot web application that simulates a living, breathing world. A 50×50 grid of biome cells transitions between states (Water, Mountain, Plain) according to defined probability rules, implemented as a Markov chain.
 
-The world exists in two phases: a **light phase** and a **dark phase**. With each phase transition, the biomes shift according to their transition probabilities. Certain cells can be **stabilized** to prevent them from changing — essential for survival in the dangerous outer world.
+The world exists in two phases: a **light phase** and a **dark phase**. With each phase transition, the biomes shift according to their transition probabilities. Certain cells can be **stabilized** to prevent them from changing.
 
 ---
 
@@ -49,12 +49,12 @@ The world exists in two phases: a **light phase** and a **dark phase**. With eac
 
 The application follows the **MVC pattern**:
 
-- **Model** — `BiomeType`, `Cell`, `Grid`, `Phase`, `StabilizerConfig`
-- **Service** — `BiomeMarkovService` (implements `MarkovService`), `StabilizerService`
-- **Controller** — `MapController`
-- **Repository** — `PhaseRepository`, `StabilizerConfigRepository`
+- **Model** - `BiomeType`, `Cell`, `Grid`, `Phase`, `StabilizerConfig`
+- **Service** - `BiomeMarkovService` (implements `MarkovService`), `StabilizerService`
+- **Controller** - `MapController`
+- **Repository** - `PhaseRepository`, `StabilizerConfigRepository`
 
-The Markov chain logic lives in `BiomeMarkovService`. For each non-fixed, non-stabilized cell, a random value is compared against the cumulative transition probabilities of the current biome — determining the next biome state.
+The Markov chain logic lives in `BiomeMarkovService`. For each non-fixed, non-stabilized cell, a random value is compared against the cumulative transition probabilities of the current biome, determining the next biome state.
 
 ---
 
@@ -68,7 +68,7 @@ Each biome has defined transition probabilities to the other biome types:
 | Mountain | 0.2 | 0.5 | 0.3 |
 | Plain | 0.4 | 0.3 | 0.3 |
 
-A random `double` value between 0.0 and 1.0 is generated per cell. It is compared against the cumulative probabilities to determine the new biome — ensuring statistically correct transitions over time.
+A random `double` value between 0.0 and 1.0 is generated per cell. It is compared against the cumulative probabilities to determine the new biome, ensuring statistically correct transitions over time.
 
 ---
 
@@ -77,7 +77,7 @@ A random `double` value between 0.0 and 1.0 is generated per cell. It is compare
 The project was developed using **Test-Driven Development (TDD)**. Key test highlights:
 
 - Unit tests for `BiomeMarkovService` and `StabilizerService` using Mockito
-- A **seed-based test** for the Markov transition logic — since outcomes are probabilistic, a fixed `Random` seed ensures reproducible, deterministic test results
+- A **seed-based test** for the Markov transition logic. The outcomes are probabilistic, a fixed `Random` seed ensures reproducible, deterministic test results
 
 ---
 
